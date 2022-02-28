@@ -4,7 +4,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { api } from '../services/api';
 
-
+interface  SideBarProps{
+  handleClickButton: (id: number) => void;
+  selectedGenreId: number;
+}
 interface GenreResponseProps {
   id: number;
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
@@ -12,8 +15,8 @@ interface GenreResponseProps {
 }
 
   
-export function SideBar() {
-  const [selectedGenreId, setSelectedGenreId] = useState(1);
+export function SideBar({handleClickButton,selectedGenreId}:SideBarProps) {
+  // const [selectedGenreId, setSelectedGenreId] = useState(1);
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
@@ -23,16 +26,8 @@ export function SideBar() {
     });
   }, []);
 
-  useEffect(()=>{
-
-  })
-
-  function handleClickButton(id: number) {
-    setSelectedGenreId(id);
-  }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
     <nav className="sidebar">
       <span>Watch<p>Me</p></span>
 
@@ -49,6 +44,5 @@ export function SideBar() {
       </div>
 
     </nav>
-    </div>
   )
 }
