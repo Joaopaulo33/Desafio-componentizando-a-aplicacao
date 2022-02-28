@@ -31,7 +31,6 @@ interface ContentProps{
 
 // Desestruturando o ContentProps
 export function Content({selectedGenreId,selectedGenre}:ContentProps) {
-  // Complete aqui
   const [movies, setMovies] = useState<MovieProps[]>([]);
 
   useEffect(() => {
@@ -43,8 +42,7 @@ export function Content({selectedGenreId,selectedGenre}:ContentProps) {
   }, [selectedGenreId]);
 
 
-
-
+  
   return (
     <div className="container">
     <header>
@@ -59,7 +57,6 @@ export function Content({selectedGenreId,selectedGenre}:ContentProps) {
       </div>
     </main>
   </div>
-// </div>
 )
 
 }
